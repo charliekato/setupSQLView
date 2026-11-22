@@ -6,14 +6,16 @@ using System.Security;
 string connectionStr = "";
 
 // SQL ディレクトリ
-const string SQL_DIR = "./sql";
+string workDir = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) ;
+
+string SQL_DIR = $"{workDir}\\setupSQLView\\sql";
 
 // Server 名を入力
 Console.Write("SQL Server [localhost]: ");
 string server = Console.ReadLine()?.Trim() ?? "";
 
 if (string.IsNullOrEmpty(server))
-    server = "localhost";
+    server = "localhost\\SQLEXPRESS";
 
 // 接続文字列を作成
 var builder = new SqlConnectionStringBuilder
@@ -24,7 +26,8 @@ var builder = new SqlConnectionStringBuilder
 };
 
 if (server.Equals("localhost", StringComparison.OrdinalIgnoreCase)
-    || server.Equals(".", StringComparison.OrdinalIgnoreCase))
+    || server.Equals(".", StringComparison.OrdinalIgnoreCase)
+    || server.Equals("localhost\\sqlexpress", StringComparison.OrdinalIgnoreCase))
 {
     // Windows 認証
     builder.IntegratedSecurity = true;
