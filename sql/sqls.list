@@ -6,10 +6,10 @@ vプログラム.sql
 #vリレーオーダー.sql
 vレーン順.sql
 v記録.sql
-v記録paraポイント.sql
+#v記録paraポイント.sql
 v記録with競技情報.sql
-v記録ポイント.sql
-vポイントランキング.sql
+#v記録ポイント.sql
+#vポイントランキング.sql
 vランキング.sql
 #BestRecord.sql
 #vpointranking.bk.sql
